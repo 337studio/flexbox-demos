@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Header With Flexbox</title>
+    <link rel="stylesheet" href="complex-flexbox.css">
+  </head>
+  <body>
+    <header>
+      <div class="flexbox container">
+        <h1 class="logo">LOGO HERE</h1>
+        <nav class="mainnav">
+          <ul class="flexbox">
+            <li class="active"><a href="#">Work</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="mobilenav">
+          <button>X</button>
+          <ul>
+            <li class="active"><a href="#">Work</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <button>Show</button>
+      </header>
+    </div>
+
+    <main>
+      <article>
+        <div class="container">
+          <h2>Look Ma! No Floats!</h2>
+
+          <p>
+            The purple header above has zero floats in it! It's all flexbox,
+            baby.
+          </p>
+          <p>
+            Tacos actually microdosing, pour-over semiotics banjo chicharrones
+            retro fanny pack portland everyday carry vinyl typewriter. Tacos pork
+            belly, everyday carry ennui pickled sriracha normcore hashtag
+            polaroid single-origin coffee cold-pressed. Tattooed trust fund twee,
+            leggings salvia iPhone photo booth health goth gastropub hammock.
+          </p>
+        </div>
+
+        <div class="full-bar">
+          <div class="row">
+            <div class="col-3">
+              <h3>Column 1</h3>
+              <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              facilisis elit at nisl vehicula iaculis. Mauris finibus ante a
+              velit volutpat sodales. Nullam risus urna, tincidunt at rutrum
+              vitae, bibendum et nisi. Etiam vehicula gravida sollicitudin.
+              Pellentesque gravida at sapien in maximus.
+              </p>
+            </div>
+            <div class="col-3">
+              <h3>Column 2</h3>
+              <p>
+              Etiam semper sodales lectus vel convallis. Maecenas blandit nunc
+              varius nibh sagittis, a lacinia arcu porttitor. Morbi augue arcu,
+              interdum sit amet vulputate ut, consequat id tellus.
+              </p>
+            </div>
+            <div class="col-3">
+              <h3>Column 3</h3>
+              <p>
+              Donec dui dui, gravida efficitur nunc eu, feugiat bibendum diam.
+              Morbi orci arcu, cursus sed ante eget, pulvinar efficitur lectus.
+              In scelerisque elit id dignissim vulputate. Mauris rhoncus id
+              risus et sollicitudin. Nulla facilisi. Fusce pretium gravida
+              neque, vitae ultricies tellus lacinia sed. Maecenas eget
+              porttitor nunc.
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <div class="container">
+          <h2>Another Heading That Isn't Real</h2>
+
+          <p>
+            Tacos actually microdosing, pour-over semiotics banjo chicharrones
+            retro fanny pack portland everyday carry vinyl typewriter. Tacos 
+            pork belly, everyday carry ennui pickled sriracha normcore hashtag
+            polaroid single-origin coffee cold-pressed. Tattooed trust fund
+            twee, leggings salvia iPhone photo booth health goth gastropub
+            hammock.
+          </p>
+        </div>
+      </article>
+
+      <article class="flexbox">
+        <div class="container">
+          <h3>Some more flexbox fun</h3>
+          <div class="flexbox">
+            <button>Smile</button>
+            <button>Laugh</button>
+            <button>Wink</button>
+            <button>Shrug</button>
+            <button>Blush</button>
+          </div>
+          <div>
+            <p>
+              Tacos actually microdosing, pour-over semiotics banjo chicharrones
+              retro fanny pack portland everyday carry vinyl typewriter. Tacos
+              pork belly, everyday carry ennui pickled sriracha normcore hashtag
+              polaroid single-origin coffee cold-pressed. Tattooed trust fund
+              twee, leggings salvia iPhone photo booth health goth gastropub
+              hammock.
+            </p>
+          </div>
+          <div>
+            <p>
+              Cray food truck brunch, XOXO +1 keffiyeh pickled chambray waistcoat
+              ennui. Organic small batch paleo 8-bit. Intelligentsia umami
+              wayfarers pickled, asymmetrical kombucha letterpress kitsch
+              leggings cold-pressed squid chartreuse put a bird on it. Listicle
+              pickled man bun cornhole heirloom art party.
+            </p>
+          </div>
+        </div>
+      </article>
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; 2017 - Awesome site</p>
+        <p>This is a footer, where footer stuff goes.</p>
+      </div>
+    </footer>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script>
+      jQuery(function () {
+        $('header button').on('click', function () {
+          $('body').addClass('show-mobilenav');
+        });
+
+        $('.mobilenav button').on('click', function () {
+          $('body').removeClass('show-mobilenav');
+        });
+      });
+    </script>
+  </body>
+</html>
