@@ -1,0 +1,289 @@
+/* CSS Variables?! Yup! */
+:root {
+  --bp: 630px;
+  --main-color: #222;
+}
+
+html {
+  font-family: sans-serif;
+
+  /* Weird syntax, since we're basically calling a var() function to use a variable */
+  color: var(--main-color);
+}
+
+body {
+  margin: 0;
+}
+
+.show-mobilenav {
+  overflow: hidden;
+}
+
+/* Instead of sprinkling this display property everywhere,
+ * let's just put it in a separate class */
+.flexbox {
+  display: flex;
+}
+
+.container {
+  padding: 0 10px;
+  margin: 0 10px;
+}
+
+  @media screen and (min-width: 999px) {
+    .container {
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+.logo {
+  color: white;
+  line-height: 80px;
+  margin: 0;
+  text-align: center;
+}
+
+/* Mobile first styles */
+header {
+  background: purple;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+  header button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  header > .container {
+    flex-flow: column nowrap;
+
+    /* Center align children along cross axis */
+    align-items: center;
+  }
+
+  /* First breakpoint */
+  @media screen and (min-width: 630px) {
+    header {
+      height: 80px;
+    }
+
+    header > .container {
+      flex-flow: row nowrap;
+
+      /* This will make the logo go far left, nav far right */
+      justify-content: space-between;
+    }
+  }
+
+  .mainnav > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+    @media screen and (min-width: 630px) {
+      .mainnav > ul {
+        margin-right: 10px;
+      }
+    }
+
+  .mainnav a {
+    color: white;
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+    /* Large breakpoint, let's add some more spacing */
+    @media screen and (min-width: 900px) {
+      .mainnav a {
+        padding: 10px 40px;
+      }
+    }
+
+  .mainnav > ul > li {
+    /* Provide context to absolutely position the ::after pseduo-element */
+    position: relative;
+  }
+
+    /* Style active nav item differently */
+    .mainnav li::after {
+      background-color: white;
+      content: '';
+      display: none;
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+
+    .mainnav li.active::after {
+      display: block;
+      transform: skewX(-9deg);
+    }
+
+    .mainnav li.active a {
+      color: purple;
+    }
+
+.mobilenav {
+  background-color: rgba(255, 255, 255, 0.95);
+  height: 100vh;
+  /* left: -100vw; */
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  /* top: calc(-100vh - 60px); */
+  transition: opacity 300ms ease-in-out;
+  width: 100%;
+  z-index: -1;
+}
+
+.show-mobilenav .mobilenav {
+  /* left: 0; */
+  /* top: 0; */
+  opacity: 1;
+  z-index: 1000;
+}
+
+.mobilenav > button {
+  background: transparent;
+  border: 1px solid grey;
+  border-radius: 50%;
+  padding: 10px 20px;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 2rem 0 0;
+  position: relative;
+  right: 0;
+  top: 0;
+}
+
+.mobilenav ul {
+  list-style-type: none;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+/* .mobilenav ul a { */
+/*   border-bottom: 1px solid #444; */
+/*   border-left: 10px solid purple; */
+/*   transition: border-left-width 80ms ease-out; */
+/*   box-sizing: border-box; */
+/*   font-size: 26px; */
+/*   font-weight: 300; */
+/*   color: dodgerblue; */
+/*   display: block; */
+/*   padding-left: 1rem; */
+/*   height: 20vh; */
+/*   line-height: 20vh; */
+/*   text-decoration: none; */
+/* } */
+
+.mobilenav ul a {
+  box-sizing: border-box;
+  font-size: 26px;
+  font-weight: 300;
+  color: purple;
+  display: block;
+  padding: 2rem 0;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mobilenav ul a:hover {
+  border-left-width: 20px;
+}
+
+.mobilenav ul .active a {
+  background-color: purple;
+  color: white;
+  font-weight: normal;
+}
+
+.full-bar {
+  background-color: ghostwhite;
+}
+
+  .full-bar > .row {
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+
+.row {
+  overflow: auto;
+}
+
+.col-3 {
+  background-color: lavender;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+  .col-3 > :first-child {
+    margin-top: 0;
+  }
+  .col-3 > :last-child {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 630px) {
+    .col-3 {
+      float: left;
+      width: 33.333333%;
+    }
+
+    .col-3:nth-child(2) {
+      background-color: aliceblue;
+    }
+  }
+
+article {
+  background: white;
+  flex: 1 200px;
+}
+
+  article:nth-of-type(3) {
+    flex: 3 200px;
+    flex-flow: column;
+  }
+
+  article:nth-of-type(3) div:first-child {
+    flex: 1 100px;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+button {
+  margin: 5px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+footer {
+  border-top: 1px dashed #eee;
+  text-align: center;
+}
+
+footer > .container {
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+
+footer > .container > p:first-child {
+  margin-top: 0;
+}
